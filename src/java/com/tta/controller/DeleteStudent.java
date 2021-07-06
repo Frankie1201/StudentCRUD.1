@@ -14,7 +14,7 @@ public class DeleteStudent extends HttpServlet {
     
     int sid;
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter())
@@ -34,6 +34,12 @@ public class DeleteStudent extends HttpServlet {
             out.print("Error.......Record can not be deleted");
             request.getRequestDispatcher("Delete.jsp").include(request, response);
                 }
+          
         }
+    }
+     @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        processRequest(request, response);
     }
 }

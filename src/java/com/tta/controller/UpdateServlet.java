@@ -15,7 +15,7 @@ public class UpdateServlet extends HttpServlet {
     int sid;
     int score;
     
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()){
@@ -42,7 +42,11 @@ public class UpdateServlet extends HttpServlet {
         }
             
         }
-    
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        processRequest(request, response);
+    }
             
     
 }
